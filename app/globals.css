@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 10% 3%; /* A very dark gray, almost black */
+    --foreground: 220 10% 95%; /* Off-white for main text, close to #F3F4F6 */
+
+    --card: 220 10% 8%; /* Slightly lighter dark gray for cards */
+    --card-foreground: 220 10% 95%; /* Off-white for card text */
+
+    --popover: 220 10% 8%;
+    --popover-foreground: 220 10% 95%;
+
+    --primary: 180 60% 70%; /* Lighter, less flashy Teal/Cyan */
+    --primary-foreground: 220 10% 10%; /* Darker text for lighter primary background */
+
+    --secondary: 220 10% 15%; /* Darker gray for secondary elements */
+    --secondary-foreground: 220 10% 90%;
+
+    --muted: 220 10% 25%; /* Even darker gray for muted backgrounds */
+    --muted-foreground: 220 10% 50%; /* Gray for muted text */
+
+    --accent: 220 10% 15%;
+    --accent-foreground: 220 10% 90%;
+
+    --destructive: 0 84% 60%; /* red-500 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 10% 20%; /* Darker border */
+    --input: 220 10% 15%; /* Darker input background */
+    --ring: 180 60% 70%; /* Lighter Teal/Cyan */
+
+    --code-foreground: 210 9% 83%; /* #D1D5DB for IBM Plex Mono */
+
+    --radius: 0.5rem;
+  }
+
+  /* Define font stack for body text and UI content */
+  .font-sans {
+    font-family: "Inter", sans-serif;
+  }
+  /* Define font stack for headings */
+  .font-heading {
+    font-family: "Space Grotesk", sans-serif;
+  }
+  /* Define font stack for code blocks / ATS output */
+  .font-mono {
+    font-family: "IBM Plex Mono", monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Custom styles for prose-like content */
+.prose {
+  color: var(--foreground);
+}
+
+.prose strong {
+  color: var(--primary);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--primary); /* Headings in prose should still be primary color */
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Fade-in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
