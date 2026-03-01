@@ -68,7 +68,7 @@ export const registerUser = (email, password) =>
   postWithAuthErrorHandling("/auth/Register", { email, password })
 
 export const loginUser = async (email, password) => {
-  const data = await postWithAuthErrorHandling("/auth/Login", { email, password })
+  const data = await postWithAuthErrorHandling("/auth/login", { email, password })
   setAuthToken(data.token || data.access_token, email)
   return data
 }
